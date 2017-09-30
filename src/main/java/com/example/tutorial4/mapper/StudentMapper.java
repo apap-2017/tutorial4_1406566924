@@ -26,6 +26,6 @@ public interface StudentMapper
     @Delete("DELETE FROM student WHERE npm = #{npm}")
     void deleteStudent (@Param("npm") String npm);
     
-    @Update("UPDATE student SET npm=#{npm}, name=#{name}, gpa=#{gpa}")
+    @Update("UPDATE student SET npm=#{npm}, name=#{name}, gpa=#{gpa} WHERE npm=#{npm}")
     void  updateStudent(StudentModel student);
 }

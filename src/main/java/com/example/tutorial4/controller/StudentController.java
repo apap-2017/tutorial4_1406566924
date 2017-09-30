@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.tutorial4.model.StudentModel;
@@ -87,6 +89,22 @@ public class StudentController {
 
 	@RequestMapping("/student/update/{npm}")
 	public String update(Model model, @PathVariable(value = "npm") String npm) {
-		return "form-update";
+		StudentModel student = studentDAO.selectStudent(npm);
+
+		if (student != null) {
+			model.addAttribute("student", student);
+			
+			return "form-update";
+		} else {
+			model.addAttribute("npm", npm);
+			return "not-found";
+		}
+	}
+	
+	@RequestMapping(value="/student/update/submit", method = RequestMethod.POST)
+	public String updateSubmit(@ModelAttribute StudentModel student) {
+		studentDAO.updateStudent(student);
+
+		return "success-update";
 	}
 }
