@@ -93,15 +93,15 @@ public class StudentController {
 
 		if (student != null) {
 			model.addAttribute("student", student);
-			
+
 			return "form-update";
 		} else {
 			model.addAttribute("npm", npm);
 			return "not-found";
 		}
 	}
-	
-	@RequestMapping(value="/student/update/submit", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/student/update/submit", method = RequestMethod.POST)
 	public String updateSubmit(@ModelAttribute StudentModel student) {
 		studentDAO.updateStudent(student);
 

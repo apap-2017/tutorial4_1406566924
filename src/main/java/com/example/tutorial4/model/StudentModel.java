@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentModel
-{
-    private String npm;
-    private String name;
-    private double gpa;
+public class StudentModel {
+	private String npm;
+	private String name;
+	private double gpa;
 
 }

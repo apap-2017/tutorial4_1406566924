@@ -4,13 +4,14 @@ import java.util.List;
 
 import com.example.tutorial4.model.StudentModel;
 
-public interface StudentService
-{
-    StudentModel selectStudent (String npm);
+public interface StudentService {
+	StudentModel selectStudent(String npm);
 
-    List<StudentModel> selectAllStudents ();
+	List<StudentModel> selectAllStudents();
 
-    void addStudent (StudentModel student);
-    void deleteStudent (String npm);
-    void updateStudent (StudentModel student);
+	void addStudent(StudentModel student);
+
+	void deleteStudent(String npm);
+
+	void updateStudent(StudentModel student);
 }

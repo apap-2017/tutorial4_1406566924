@@ -12,20 +12,19 @@ import org.apache.ibatis.annotations.Update;
 import com.example.tutorial4.model.StudentModel;
 
 @Mapper
-public interface StudentMapper
-{
-    @Select("SELECT npm, name, gpa FROM student WHERE npm = #{npm}")
-    StudentModel selectStudent (@Param("npm") String npm);
+public interface StudentMapper {
+	@Select("SELECT npm, name, gpa FROM student WHERE npm = #{npm}")
+	StudentModel selectStudent(@Param("npm") String npm);
 
-    @Select("SELECT npm, name, gpa FROM student")
-    List<StudentModel> selectAllStudents ();
+	@Select("SELECT npm, name, gpa FROM student")
+	List<StudentModel> selectAllStudents();
 
-    @Insert("INSERT INTO student (npm, name, gpa) VALUES (#{npm}, #{name}, #{gpa})")
-    void addStudent (StudentModel student);
-    
-    @Delete("DELETE FROM student WHERE npm = #{npm}")
-    void deleteStudent (@Param("npm") String npm);
-    
-    @Update("UPDATE student SET npm=#{npm}, name=#{name}, gpa=#{gpa} WHERE npm=#{npm}")
-    void  updateStudent(StudentModel student);
+	@Insert("INSERT INTO student (npm, name, gpa) VALUES (#{npm}, #{name}, #{gpa})")
+	void addStudent(StudentModel student);
+
+	@Delete("DELETE FROM student WHERE npm = #{npm}")
+	void deleteStudent(@Param("npm") String npm);
+
+	@Update("UPDATE student SET npm=#{npm}, name=#{name}, gpa=#{gpa} WHERE npm=#{npm}")
+	void updateStudent(StudentModel student);
 }
